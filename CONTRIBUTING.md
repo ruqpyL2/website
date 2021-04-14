@@ -133,11 +133,11 @@ Docker is the recommended approach to quickly getting started with local develop
 
 There are two pre-requisites: Docker and Docker Compose.
 The recommended installation method is [Docker Desktop](https://docs.docker.com/install/) for Windows 10 64-bit,
-Mac, and Linux users. Users of unsupported operating systems may check out [Docker Toolbox](https://docs.docker.com/compose/gettingstarted/) instead.
+Mac, and Linux users.
 
 More on using Docker and the concepts of containerization:
 
-* [Get started with Docker](#docker)
+* [Get started with Docker](https://docs.docker.com/get-docker/)
 * [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
 
 *Ensure you run the `docker` commands below from a shell inside the local directory containing your clone of this repository.*
@@ -225,19 +225,30 @@ c) Prepare your changes to push to your repository
 
 Once you are done with the work on your issue you will push it to your repository.  Before you can push your work to your repository, you will stage and commit your changes.  These two commands are similar to the save command that you have used to in other programs. 
 
+> - If you are using Visual studios code you can use the Git graphical user interface to stage your changes. For instructions check out the [Git gui wiki] (https://github.com/hackforla/website/wiki/Using-Git-GUI-(Graphical-user-Interface)-in-Visual-Studios-Code)
+> Alternatively you can follow the intstructions below to stage changes through the terminal.
+
+
 -Use the `git add` command to stage your changes.  
-This command prepares your changes before you commit them. You can stage files one at a time using the filename, or you can use the `.` to stage all of the files that you have added or made changes to. 
+This command prepares your changes before you commit them. You can stage files one at a time using the filename. 
 
 Run the command: 
 ```bash
-git add .
+git add “filename.ext”
 ```
 
 -Use the `git status` command to see what files are staged. 
 
 This command will list the files that have been staged.  These are the files that will be committed (saved) when you run the next command, `git commit`. Please be sure all your staged changes are relevant to the issue you are working on. If you find you have included unrelated changes, please unstage them before making this commit - and then make a new commit for the unrelated changes. (The commands for unstaging commits are provided in the output of your `git status` command.)
+
 ```bash
 git status
+```
+-Use the `git reset HEAD` command to remove a staged file. 
+
+This command will remove a file that has been staged.  This file will not be committed (saved) when you run the next command, `git commit`. This only works if the wrong files were added, but they were not yet committed. The file will be removed from the staging area, but not actually deleted:
+```bash
+git reset HEAD “filename.ext” 
 ```
 
 -Use the `git commit` command
@@ -322,7 +333,7 @@ If you have already created the branch upstream-gh-pages, the following commands
 ```bash
 git checkout upstream-gh-pages # Move to the branch you want to merge with. 
 git pull  # This updates your tracking branch to match the gh-pages branch in this repository
-git checkout gh-pages  # Move back to your gn-pages branch
+git checkout gh-pages  # Move back to your gh-pages branch
 git merge upstream-gh-pages  # Merge to bring your gh-pages current. 
 ```
 If you do all your work on topic branches (as suggested above) and keep gh-pages free of local modifications, this merge should apply cleanly.
@@ -409,7 +420,6 @@ If you find an error in your code or your reviewer asks you to make a change, pl
 
 ### Supported Platforms
 
-- [dockertoolbox](https://docs.docker.com/toolbox/overview/)
 - [ghpages](https://pages.github.com/)
 - [jekyll](https://jekyllrb.com)
 - [jekyllcli](https://jekyllrb.com/docs/usage/)
